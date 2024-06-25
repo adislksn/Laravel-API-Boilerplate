@@ -1,0 +1,70 @@
+@hostname = http://127.0.0.1:8000/api/v1
+@accessToken = 36|h1JKlYx7ylnf82Oqrs9Be2VfrBh9LMNO22CoY13k014b0d90
+@refreshToken = 34|tjBgTNtH0hk9kdHRhXD1FUoF7zjIerAN83BEA9Pna5e5cd24
+@jwtToken = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvand0L2xvZ2luIiwiaWF0IjoxNzE5Mjc1ODY2LCJleHAiOjE3MTkyNzU5MjYsIm5iZiI6MTcxOTI3NTg2NiwianRpIjoiTG9TbW9FcUZQQmlSZGYzaCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.kNwotkCtDRxrAETjO6_khPo1y8krU6u75QfQKJZICRU
+
+# API Documentation Auth Sanctum
+### Post Login
+POST {{hostname}}/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+
+### Get Me
+GET {{hostname}}/auth/me
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Refresh Token
+GET {{hostname}}/auth/refresh
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{refreshToken}}
+
+### Get Logout
+GET {{hostname}}/auth/logout
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+### Get Users
+GET {{hostname}}/users
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{accessToken}}
+
+
+# API Documentation Auth JWT
+### Post Login
+POST {{hostname}}/auth/jwt/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+
+### Me JWT
+GET {{hostname}}/auth/jwt/me
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+### Refresh Token JWT
+GET {{hostname}}/auth/jwt/refresh
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+### Logout JWT
+GET {{hostname}}/auth/jwt/logout
+Content-Type: application/json
+Authorization: Bearer {{jwtToken}}
+
+### Get Users JWT
+GET {{hostname}}/users
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{jwtToken}}
